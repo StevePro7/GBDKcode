@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\source">
+      <UniqueIdentifier>{19e5ddef-466b-4dde-9f91-68982f5330cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers">
+      <UniqueIdentifier>{9b12774b-faa1-4623-bccb-cc3430401829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen">
+      <UniqueIdentifier>{3bc3fc67-a9c2-4fc4-89bd-c4d875cb0be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen\graphics">
+      <UniqueIdentifier>{b5f0721b-175d-47d3-b3f4-ff2804597bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\main">
+      <UniqueIdentifier>{389350bc-fadc-484e-86fa-2a3f01e1e442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen">
+      <UniqueIdentifier>{0032aa7b-abfd-4b8e-b7cf-d27041029181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen\default">
+      <UniqueIdentifier>{7dadef6d-fa97-4d8e-abc3-3bf945ec4829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen\default\graphics">
+      <UniqueIdentifier>{1607a129-d209-471e-8406-1c4f9ae4628a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\main\States">
+      <UniqueIdentifier>{587f4d04-61fc-4af7-abd1-f5f4fb2b92b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\main\States\Gameplay">
+      <UniqueIdentifier>{fb432af8-6d2a-4f4e-8fdf-b7352f3a518a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\main">
+      <UniqueIdentifier>{4e014471-d5ce-4997-b2bd-52ce19ed51d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\main\default">
+      <UniqueIdentifier>{5fa023bb-603a-417d-b165-4dca1c856735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\main\default\States">
+      <UniqueIdentifier>{dd963660-7e6e-4926-9988-60df93c7f053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\main\default\States\Gameplay">
+      <UniqueIdentifier>{7b6eabe5-403f-4ac9-9003-87bf1b7cb7fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="generate-graphics.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main\default\States\Gameplay\alien.c">
+      <Filter>Source Files\source\main\default\States\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\Gameplay\bullets.c">
+      <Filter>Source Files\source\main\default\States\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\Gameplay\invaders.c">
+      <Filter>Source Files\source\main\default\States\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\Gameplay\player.c">
+      <Filter>Source Files\source\main\default\States\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\GameOverScreen.c">
+      <Filter>Source Files\source\main\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\GamplayScreen.c">
+      <Filter>Source Files\source\main\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\MenuScreen.c">
+      <Filter>Source Files\source\main\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\NextLevelScreen.c">
+      <Filter>Source Files\source\main\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\States\StartScreen.c">
+      <Filter>Source Files\source\main\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\Common.c">
+      <Filter>Source Files\source\main\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\Hud.c">
+      <Filter>Source Files\source\main\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\default\main.c">
+      <Filter>Source Files\source\main\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Alien.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Barricade.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\BulletA.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\BulletB.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\BulletC.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Explosion.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Invader1.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Invader2.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Invader3.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\Player.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\SpaceInvadersFont.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\default\graphics\SpaceInvadersTitle.c">
+      <Filter>Source Files\source\gen\default\graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\gen\graphics\Alien.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Barricade.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\BulletA.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\BulletB.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\BulletC.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Explosion.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Invader1.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Invader2.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Invader3.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Player.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\SpaceInvadersFont.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\SpaceInvadersTitle.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\Common.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\Hud.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\GameOverScreen.h">
+      <Filter>Header Files\headers\main\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\GameplayScreen.h">
+      <Filter>Header Files\headers\main\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\MenuScreen.h">
+      <Filter>Header Files\headers\main\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\NextLevelScreen.h">
+      <Filter>Header Files\headers\main\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\StartScreen.h">
+      <Filter>Header Files\headers\main\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\Gameplay\Alien.h">
+      <Filter>Header Files\headers\main\States\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\Gameplay\bullets.h">
+      <Filter>Header Files\headers\main\States\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\Gameplay\invaders.h">
+      <Filter>Header Files\headers\main\States\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\States\Gameplay\player.h">
+      <Filter>Header Files\headers\main\States\Gameplay</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

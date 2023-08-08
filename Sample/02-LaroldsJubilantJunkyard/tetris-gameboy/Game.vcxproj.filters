@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\source">
+      <UniqueIdentifier>{19e5ddef-466b-4dde-9f91-68982f5330cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers">
+      <UniqueIdentifier>{9b12774b-faa1-4623-bccb-cc3430401829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen">
+      <UniqueIdentifier>{3bc3fc67-a9c2-4fc4-89bd-c4d875cb0be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen\graphics">
+      <UniqueIdentifier>{b5f0721b-175d-47d3-b3f4-ff2804597bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\main">
+      <UniqueIdentifier>{389350bc-fadc-484e-86fa-2a3f01e1e442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen">
+      <UniqueIdentifier>{0032aa7b-abfd-4b8e-b7cf-d27041029181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\main">
+      <UniqueIdentifier>{4e014471-d5ce-4997-b2bd-52ce19ed51d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen\graphics">
+      <UniqueIdentifier>{1607a129-d209-471e-8406-1c4f9ae4628a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\asm">
+      <UniqueIdentifier>{803549cc-d389-412f-b092-f7507d33f9a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="generate-graphics.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="source\asm\hUGEDriver.asm">
+      <Filter>Source Files\source\asm</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\gen\graphics\Numbers.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Palette.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino1.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino2.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino3.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino4.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino5.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino6.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Tetromino7.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\TileAnimation.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\UserInterface.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\Board.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\common.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\hud.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\main.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\tetris_music.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\Tetrominos.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main\UserInterface.c">
+      <Filter>Source Files\source\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\gen\graphics\Numbers.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Palette.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino1.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino2.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino3.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino4.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino5.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino6.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Tetromino7.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\TileAnimation.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\UserInterface.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\board.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\common.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\hud.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\Tetrominos.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\UserInterface.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

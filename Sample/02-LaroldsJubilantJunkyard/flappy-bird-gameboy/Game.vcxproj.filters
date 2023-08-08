@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\source">
+      <UniqueIdentifier>{19e5ddef-466b-4dde-9f91-68982f5330cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\default">
+      <UniqueIdentifier>{5fa023bb-603a-417d-b165-4dca1c856735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers">
+      <UniqueIdentifier>{9b12774b-faa1-4623-bccb-cc3430401829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\default\Graphics">
+      <UniqueIdentifier>{723f8f27-c45b-4795-ac6a-a23c0cc889b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\Graphics">
+      <UniqueIdentifier>{55b50f87-2c77-4256-8612-0314f47365aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\States">
+      <UniqueIdentifier>{4b40507a-1dda-4eae-a039-c3d7f8a07400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\default\States">
+      <UniqueIdentifier>{3d7f5d28-f8b6-40eb-a5f2-a91993023cf8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\Common.h">
+      <Filter>Header Files\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utilities.h">
+      <Filter>Header Files\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\BirdAndPipes.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\FlappyBirdBackground.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\FlappyBirdEnd.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\FlappyBirdMedals.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\FlappyBirdTitle.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\ScoreTiles.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\TapToStartSprites.h">
+      <Filter>Header Files\headers\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\States\CoreGameLoop.h">
+      <Filter>Header Files\headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\States\GameFirstLoad.h">
+      <Filter>Header Files\headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\States\GameplayEnd.h">
+      <Filter>Header Files\headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\States\GameplayStart.h">
+      <Filter>Header Files\headers\States</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\default\Common.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\main.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Utilities.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\BirdAndPipes.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\FlappyBirdBackground.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\FlappyBirdEnd.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\FlappyBirdMedals.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\FlappyBirdTitle.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\ScoreTiles.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\Graphics\TapToStartSprites.c">
+      <Filter>Source Files\source\default\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\States\CoreGameLoop.c">
+      <Filter>Source Files\source\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\States\GameFirstLoad.c">
+      <Filter>Source Files\source\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\States\GameplayEnd.c">
+      <Filter>Source Files\source\default\States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\States\GameplayStart.c">
+      <Filter>Source Files\source\default\States</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

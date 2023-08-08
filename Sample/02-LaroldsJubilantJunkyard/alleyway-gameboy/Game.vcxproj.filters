@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\source">
+      <UniqueIdentifier>{19e5ddef-466b-4dde-9f91-68982f5330cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\default">
+      <UniqueIdentifier>{5fa023bb-603a-417d-b165-4dca1c856735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers">
+      <UniqueIdentifier>{9b12774b-faa1-4623-bccb-cc3430401829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen">
+      <UniqueIdentifier>{e39ffe67-c864-4eb5-a22d-72e7f048c895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\gen\graphics">
+      <UniqueIdentifier>{d091ec4c-5c98-46c6-8d03-21c1844335d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen">
+      <UniqueIdentifier>{e166a088-60ca-46f9-b681-02e92db6dcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\main">
+      <UniqueIdentifier>{88509732-a078-4e22-b3bc-d7117b006e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\headers\gen\graphics">
+      <UniqueIdentifier>{1f6a7d84-1b2e-48a1-8f32-6397030e65f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="generate-graphics.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\gen\graphics\ball.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Bricks.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\Font.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\paddle.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gen\graphics\UserInterface.c">
+      <Filter>Source Files\source\gen\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\ball.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\brick.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\collisions.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\common.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\main.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\paddle.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+    <ClCompile Include="source\default\userinterface.c">
+      <Filter>Source Files\source\default</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\gen\graphics\ball.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Bricks.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\Font.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\paddle.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gen\graphics\UserInterface.h">
+      <Filter>Header Files\headers\gen\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\ball.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\brick.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\collisions.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\common.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\paddle.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\main\userinterface.h">
+      <Filter>Header Files\headers\main</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
