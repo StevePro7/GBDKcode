@@ -1,5 +1,5 @@
 # GBDK Code
-Code samples from [Blogger](https://steveproxna.blogspot.com) articles tagged as [eBPF](https://steveproxna.blogspot.com/search/label/GBDK).
+Code samples from [Blogger](https://steveproxna.blogspot.com) articles tagged as [GBDK](https://steveproxna.blogspot.com/search/label/GBDK).
 
 ### GBDK Programming Setup
 Fri, 15th September, 2023
