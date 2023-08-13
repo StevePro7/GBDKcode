@@ -3,8 +3,20 @@
 Reference: https://github.com/gingemonster/GamingMonstersGameBoySampleCode
 <hr />
 
-ABCDEF
+New File
 ```
-git clone https://github.com/gingemonster/GamingMonstersGameBoySampleCode.git
-# BLAH BLAH BLAH
+Create main.c
+update main.c
+```
+Compile code
+```
+%GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -c -o main.o main.c
+```
+Link code
+```
+%GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -o output.gb main.o
+```
+Execute test
+```
+output.gb
 ```
