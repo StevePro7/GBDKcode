@@ -1,6 +1,6 @@
 ##### README.md
 ###### 15-Sep-2023
-Reference: https://github.com/gingemonster/GamingMonstersGameBoySampleCode
+Reference: https://github.com/gingemonster/GamingMonstersGameBoySampleCode/tree/master/01_helloworld
 <hr />
 
 New File
