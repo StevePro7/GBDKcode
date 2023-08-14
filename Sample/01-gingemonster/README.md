@@ -23,7 +23,7 @@ copy launch.json
 ```
 Copy source project files
 ```
-copy gbdk-2020/tree/master/gbdk-lib/examples/gb/02_simplesprites/* 02_simplesprites/*
+copy gingemonster/GamingMonstersGameBoySampleCode/tree/master/02_simplesprites/* 02_simplesprites/*
 ```
 Launch Visual Studio 2015
 ```
