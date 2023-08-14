@@ -23,7 +23,7 @@ copy launch.json
 ```
 Copy source project files
 ```
-copy gbdk-2020/tree/master/gbdk-lib/examples/gb/apa_image/* apa_image/
+copy gbdk-2020/gbdk-2020/tree/master/gbdk-lib/examples/gb/apa_image/* apa_image/*
 ```
 Launch Visual Studio 2015
 ```
@@ -36,8 +36,8 @@ Ctrl+1 build, link and run output.gb
 ```
 Launch Visual Studio Code
 ```
-Open folder
+Open folder apa_image
 Ctrl+Shift+B build and link output.gb
 F5 debug output.gb
 ```
-Repeat process for all examples
+Repeat process for all folders!
