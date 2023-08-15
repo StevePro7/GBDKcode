@@ -21,6 +21,10 @@ copy c_cpp_properties.json
 copy tasks.json
 copy launch.json
 ```
+Copy build files
+```
+copy build.bat
+```
 Copy source project files
 ```
 copy gbdk-2020/gbdk-2020/tree/master/gbdk-lib/examples/gb/apa_image/* apa_image/*
@@ -32,12 +36,14 @@ Create header filters
 Create source filters
 Import header files
 Import source files
+Import build.bat
+Update all files
 Ctrl+1 build, link and run output.gb
 ```
 Launch Visual Studio Code
 ```
 Open folder apa_image
-Ctrl+Shift+B build and link output.gb
+Ctrl+Shift+B build, link and run output.gb
 F5 debug output.gb
 ```
 Repeat process for all folders!
