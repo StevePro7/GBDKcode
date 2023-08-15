@@ -3,6 +3,11 @@
 Reference: https://github.com/gingemonster/GamingMonstersGameBoySampleCode/tree/master/01_helloworld
 <hr />
 
+New Folder
+```
+mkdir HelloWorld
+cd HelloWorld
+```
 New File
 ```
 Create main.c
