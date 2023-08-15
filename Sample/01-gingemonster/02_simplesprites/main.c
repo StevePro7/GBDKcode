@@ -1,6 +1,6 @@
 #include <gb/gb.h>
 #include <stdio.h>
-#include <asm/z80/types.h>
+#include <asm/sm83/types.h>
 #include "SmilerSprites.h"
 
 void main() {
