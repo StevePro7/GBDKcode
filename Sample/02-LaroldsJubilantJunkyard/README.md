@@ -21,6 +21,10 @@ copy c_cpp_properties.json
 copy tasks.json
 copy launch.json
 ```
+Copy build files
+```
+copy build.bat
+```
 Copy source project files
 ```
 copy LaroldsJubilantJunkyard/alleyway-gameboy/* alleyway-gameboy/*
@@ -32,13 +36,14 @@ Create header filters
 Create source filters
 Import header files
 Import source files
+Import build.bat
+Update all files
 Ctrl+1 build, link and run dist/BrickBreaker.gb
 ```
 Launch Visual Studio Code
 ```
 Open folder alleyway-gameboy
-Ctrl+Shift+B build and link dist/BrickBreaker.gb
-F5 debug dist/BrickBreaker.gb
+Ctrl+Shift+B build, link and run dist/BrickBreaker.gb
+TODO - F5 debug dist/BrickBreaker.gb
 ```
 Repeat process for all projects!
-```
