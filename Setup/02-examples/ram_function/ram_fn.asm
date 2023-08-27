@@ -86,7 +86,7 @@ _inc_end::
 ; Function print_counter
 ; ---------------------------------
 _print_counter::
-;ram_fn.c:33: printf(" Counter is %u\n", counter);
+;ram_fn.c:33: printf( " Counter is %u\n", counter );
 	ld	hl, #_counter
 	ld	a, (hl+)
 	ld	e, a
@@ -107,7 +107,7 @@ ___str_0:
 ; Function main
 ; ---------------------------------
 _main::
-;ram_fn.c:38: hiramcpy((uint8_t)&hiram_buffer, (void *)&inc, (uint8_t)object_distance(inc, inc_end));
+;ram_fn.c:38: hiramcpy( ( uint8_t ) &hiram_buffer, ( void * ) &inc, ( uint8_t ) object_distance( inc, inc_end ) );
 	ld	a, #<(_inc_end)
 	ld	bc, #_inc
 	ld	e, c
@@ -121,7 +121,7 @@ _main::
 	inc	sp
 	call	_hiramcpy
 	add	sp, #4
-;ram_fn.c:39: memcpy(&ram_buffer, (void *)&inc, (uint16_t)object_distance(inc, inc_end));
+;ram_fn.c:39: memcpy( &ram_buffer, ( void * ) &inc, ( uint16_t ) object_distance( inc, inc_end ) );
 	ld	a, #<(_inc_end)
 	ld	d, #>(_inc_end)
 	ld	bc, #_inc
@@ -133,26 +133,26 @@ _main::
 	push	de
 	ld	de, #_ram_buffer
 	call	_memcpy
-;ram_fn.c:42: puts("Program Start...");
+;ram_fn.c:42: puts( "Program Start..." );
 	ld	de, #___str_1
 	call	_puts
 ;ram_fn.c:43: print_counter();
 	call	_print_counter
-;ram_fn.c:46: puts("Call ROM");
+;ram_fn.c:46: puts( "Call ROM" );
 	ld	de, #___str_2
 	call	_puts
 ;ram_fn.c:47: inc();
 	call	_inc
 ;ram_fn.c:48: print_counter();
 	call	_print_counter
-;ram_fn.c:51: puts("Call RAM direct");
+;ram_fn.c:51: puts( "Call RAM direct" );
 	ld	de, #___str_3
 	call	_puts
 ;ram_fn.c:52: inc_ram();
 	call	_inc_ram
 ;ram_fn.c:53: print_counter();
 	call	_print_counter
-;ram_fn.c:56: puts("Call RAM indirect");
+;ram_fn.c:56: puts( "Call RAM indirect" );
 	ld	de, #___str_4
 	call	_puts
 ;ram_fn.c:57: inc_ram_var();
@@ -167,14 +167,14 @@ _main::
 	call	___sdcc_call_hl
 ;ram_fn.c:58: print_counter();
 	call	_print_counter
-;ram_fn.c:61: puts("Call HIRAM direct");
+;ram_fn.c:61: puts( "Call HIRAM direct" );
 	ld	de, #___str_5
 	call	_puts
 ;ram_fn.c:62: inc_hiram();
 	call	_inc_hiram
 ;ram_fn.c:63: print_counter();
 	call	_print_counter
-;ram_fn.c:66: puts("Call HIRAM indirect");
+;ram_fn.c:66: puts( "Call HIRAM indirect" );
 	ld	de, #___str_6
 	call	_puts
 ;ram_fn.c:67: inc_hiram_var();
@@ -189,7 +189,7 @@ _main::
 	call	___sdcc_call_hl
 ;ram_fn.c:68: print_counter();
 	call	_print_counter
-;ram_fn.c:70: puts("The End...");
+;ram_fn.c:70: puts( "The End..." );
 	ld	de, #___str_7
 ;ram_fn.c:71: }
 	jp	_puts
