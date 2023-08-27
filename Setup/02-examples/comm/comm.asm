@@ -56,57 +56,57 @@ _str::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;comm.c:9: void main( void )
+;comm.c:8: void main( void )
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
 	dec	sp
-;comm.c:19: puts( "  SELECT : Receive" );
+;comm.c:18: puts( "  SELECT : Receive" );
 	ld	de, #___str_20
 	call	_puts
-;comm.c:24: }
+;comm.c:23: }
 	di
-;comm.c:23: add_SIO( nowait_int_handler );    // disable waiting VRAM state before return
+;comm.c:22: add_SIO( nowait_int_handler );    // disable waiting VRAM state before return
 	ld	de, #_nowait_int_handler
 	push	de
 	call	_add_SIO
 	pop	hl
 	ei
-;comm.c:25: set_interrupts( SIO_IFLAG );          // disable other interrupts. note: this disables sprite movement
+;comm.c:24: set_interrupts( SIO_IFLAG );          // disable other interrupts. note: this disables sprite movement
 	ld	a, #0x08
 	push	af
 	inc	sp
 	call	_set_interrupts
 	inc	sp
-;comm.c:27: while( 1 ) 
+;comm.c:26: while( 1 ) 
 	ldhl	sp,	#0
 	ld	(hl), #0x00
 00157$:
-;comm.c:29: i = waitpad( J_A | J_B | J_START | J_SELECT );
+;comm.c:28: i = waitpad( J_A | J_B | J_START | J_SELECT );
 	ld	a, #0xf0
 	call	_waitpad
 	ld	c, a
-;comm.c:30: waitpadup();
+;comm.c:29: waitpadup();
 	call	_waitpadup
-;comm.c:32: if( i == J_A )
+;comm.c:31: if( i == J_A )
 	ld	a, c
 	sub	a, #0x10
 	jr	NZ, 00154$
-;comm.c:35: printf( "Sending b... " );
+;comm.c:34: printf( "Sending b... " );
 	ld	de, #___str_6
 	push	de
 	call	_printf
 	pop	hl
-;comm.c:36: _io_out = n++;
+;comm.c:35: _io_out = n++;
 	ldhl	sp,	#0
 	ld	a, (hl)
 	ld	(#__io_out),a
 	ldhl	sp,	#0
 	inc	(hl)
-;comm.c:37: send_byte();
+;comm.c:36: send_byte();
 	call	_send_byte
-;comm.c:39: while( ( _io_status == IO_SENDING ) && ( joypad() == 0 ) );
+;comm.c:38: while( ( _io_status == IO_SENDING ) && ( joypad() == 0 ) );
 00102$:
 	ld	a, (#__io_status)
 	dec	a
@@ -115,16 +115,16 @@ _main::
 	or	a, a
 	jr	Z, 00102$
 00104$:
-;comm.c:40: if( _io_status == IO_IDLE )
+;comm.c:39: if( _io_status == IO_IDLE )
 	ld	a, (#__io_status)
 	or	a, a
 	jr	NZ, 00106$
-;comm.c:41: printf( "OK\n" );
+;comm.c:40: printf( "OK\n" );
 	ld	de, #___str_8
 	call	_puts
 	jp	00155$
 00106$:
-;comm.c:43: printf( "#%d\n", _io_status );
+;comm.c:42: printf( "#%d\n", _io_status );
 	ld	hl, #__io_status
 	ld	c, (hl)
 	ld	b, #0x00
@@ -135,18 +135,18 @@ _main::
 	add	sp, #4
 	jp	00155$
 00154$:
-;comm.c:45: else if( i == J_B )
+;comm.c:44: else if( i == J_B )
 	ld	a, c
 	sub	a, #0x20
 	jr	NZ, 00151$
-;comm.c:48: printf( "Receiving b... " );
+;comm.c:47: printf( "Receiving b... " );
 	ld	de, #___str_10
 	push	de
 	call	_printf
 	pop	hl
-;comm.c:49: receive_byte();
+;comm.c:48: receive_byte();
 	call	_receive_byte
-;comm.c:51: while( ( _io_status == IO_RECEIVING ) && ( joypad() == 0 ) );
+;comm.c:50: while( ( _io_status == IO_RECEIVING ) && ( joypad() == 0 ) );
 00109$:
 	ld	a, (#__io_status)
 	sub	a, #0x02
@@ -155,11 +155,11 @@ _main::
 	or	a, a
 	jr	Z, 00109$
 00111$:
-;comm.c:52: if( _io_status == IO_IDLE )
+;comm.c:51: if( _io_status == IO_IDLE )
 	ld	a, (#__io_status)
 	or	a, a
 	jr	NZ, 00113$
-;comm.c:53: printf( "OK\n%d\n", _io_in );
+;comm.c:52: printf( "OK\n%d\n", _io_in );
 	ld	hl, #__io_in
 	ld	c, (hl)
 	ld	b, #0x00
@@ -170,7 +170,7 @@ _main::
 	add	sp, #4
 	jp	00155$
 00113$:
-;comm.c:55: printf( "#%d\n", _io_status );
+;comm.c:54: printf( "#%d\n", _io_status );
 	ld	hl, #__io_status
 	ld	c, (hl)
 	ld	b, #0x00
@@ -181,29 +181,29 @@ _main::
 	add	sp, #4
 	jp	00155$
 00151$:
-;comm.c:57: else if( i == J_START ) {
+;comm.c:56: else if( i == J_START ) {
 	ld	a, c
 	sub	a, #0x80
 	jr	NZ, 00148$
-;comm.c:59: printf( "Sending s... " );
+;comm.c:58: printf( "Sending s... " );
 	ld	de, #___str_12
 	push	de
 	call	_printf
 	pop	hl
-;comm.c:60: s = str;
+;comm.c:59: s = str;
 	ld	de, #_str+0
-;comm.c:61: while( 1 ) {
+;comm.c:60: while( 1 ) {
 00128$:
-;comm.c:62: _io_out = *s;
+;comm.c:61: _io_out = *s;
 	ld	a, (de)
 	ld	(#__io_out),a
-;comm.c:63: do {
+;comm.c:62: do {
 00120$:
-;comm.c:64: send_byte();
+;comm.c:63: send_byte();
 	push	de
 	call	_send_byte
 	pop	de
-;comm.c:66: while( ( _io_status == IO_SENDING ) && ( joypad() == 0 ) );
+;comm.c:65: while( ( _io_status == IO_SENDING ) && ( joypad() == 0 ) );
 00116$:
 	ld	a, (#__io_status)
 	dec	a
@@ -214,7 +214,7 @@ _main::
 	or	a, a
 	jr	Z, 00116$
 00121$:
-;comm.c:67: } while( ( _io_status != IO_IDLE ) && ( joypad() == 0 ) );
+;comm.c:66: } while( ( _io_status != IO_IDLE ) && ( joypad() == 0 ) );
 	ld	a, (#__io_status)
 	or	a, a
 	jr	Z, 00122$
@@ -224,12 +224,12 @@ _main::
 	or	a, a
 	jr	Z, 00120$
 00122$:
-;comm.c:68: if( _io_status != IO_IDLE ) {
+;comm.c:67: if( _io_status != IO_IDLE ) {
 	ld	hl, #__io_status
 	ld	a, (hl)
 	or	a, a
 	jr	Z, 00124$
-;comm.c:69: printf( "#%d\n", _io_status );
+;comm.c:68: printf( "#%d\n", _io_status );
 	ld	c, (hl)
 	ld	b, #0x00
 	push	bc
@@ -237,18 +237,18 @@ _main::
 	push	de
 	call	_printf
 	add	sp, #4
-;comm.c:70: break;
+;comm.c:69: break;
 	jr	00129$
 00124$:
-;comm.c:72: if( *s == 0 ) break;
+;comm.c:71: if( *s == 0 ) break;
 	ld	a, (de)
 	or	a, a
 	jr	Z, 00129$
-;comm.c:73: s++;
+;comm.c:72: s++;
 	inc	de
 	jr	00128$
 00129$:
-;comm.c:75: if( _io_status == IO_IDLE ) printf( "OK\n" );
+;comm.c:74: if( _io_status == IO_IDLE ) printf( "OK\n" );
 	ld	a, (#__io_status)
 	or	a, a
 	jr	NZ, 00155$
@@ -256,24 +256,24 @@ _main::
 	call	_puts
 	jr	00155$
 00148$:
-;comm.c:77: else if( i == J_SELECT )
+;comm.c:76: else if( i == J_SELECT )
 	ld	a, c
 	sub	a, #0x40
 	jr	NZ, 00155$
-;comm.c:80: printf( "Receiving s... " );
+;comm.c:79: printf( "Receiving s... " );
 	ld	de, #___str_14
 	push	de
 	call	_printf
 	pop	hl
-;comm.c:81: s = buffer;
+;comm.c:80: s = buffer;
 	ld	bc, #_buffer
-;comm.c:82: while( 1 ) {
+;comm.c:81: while( 1 ) {
 00141$:
-;comm.c:83: receive_byte();
+;comm.c:82: receive_byte();
 	push	bc
 	call	_receive_byte
 	pop	bc
-;comm.c:85: while( ( _io_status == IO_RECEIVING ) && ( joypad() == 0 ) );
+;comm.c:84: while( ( _io_status == IO_RECEIVING ) && ( joypad() == 0 ) );
 00133$:
 	ld	a, (#__io_status)
 	sub	a, #0x02
@@ -282,12 +282,12 @@ _main::
 	or	a, a
 	jr	Z, 00133$
 00135$:
-;comm.c:86: if( _io_status != IO_IDLE ) {
+;comm.c:85: if( _io_status != IO_IDLE ) {
 	ld	hl, #__io_status
 	ld	a, (hl)
 	or	a, a
 	jr	Z, 00137$
-;comm.c:87: printf( "#%d\n", _io_status );
+;comm.c:86: printf( "#%d\n", _io_status );
 	ld	c, (hl)
 	ld	b, #0x00
 	push	bc
@@ -295,21 +295,21 @@ _main::
 	push	de
 	call	_printf
 	add	sp, #4
-;comm.c:88: break;
+;comm.c:87: break;
 	jr	00142$
 00137$:
-;comm.c:90: *s = _io_in;
+;comm.c:89: *s = _io_in;
 	ld	a, (#__io_in)
 	ld	(bc), a
-;comm.c:91: if( *s == 0 ) break;
+;comm.c:90: if( *s == 0 ) break;
 	ld	a, (bc)
 	or	a, a
 	jr	Z, 00142$
-;comm.c:92: s++;
+;comm.c:91: s++;
 	inc	bc
 	jr	00141$
 00142$:
-;comm.c:94: if( _io_status == IO_IDLE ) printf( "OK\n%s\n", buffer );
+;comm.c:93: if( _io_status == IO_IDLE ) printf( "OK\n%s\n", buffer );
 	ld	a, (#__io_status)
 	or	a, a
 	jr	NZ, 00155$
@@ -320,10 +320,10 @@ _main::
 	call	_printf
 	add	sp, #4
 00155$:
-;comm.c:97: waitpadup();
+;comm.c:96: waitpadup();
 	call	_waitpadup
 	jp	00157$
-;comm.c:99: }
+;comm.c:98: }
 	inc	sp
 	ret
 ___str_6:
