@@ -7,7 +7,7 @@
 BANKREF(Invader2)
 
 const palette_color_t Invader2_palettes[4] = {
-	RGB8(255,255,255), RGB8(  0,  0,  0), RGB8( 80,  1, 31), RGB8(142,  1,  0)
+	RGB8(255,255,255), RGB8(  0,  0,  0), RGB8( 80,  1,101), RGB8(164,  1,  0)
 	
 };
 

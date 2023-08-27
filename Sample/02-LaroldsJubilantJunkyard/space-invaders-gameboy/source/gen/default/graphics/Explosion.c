@@ -7,7 +7,7 @@
 BANKREF(Explosion)
 
 const palette_color_t Explosion_palettes[4] = {
-	RGB8(255,255,255), RGB8(  0,  0,  0), RGB8( 80,  1,163), RGB8(173,  1,  0)
+	RGB8(255,255,255), RGB8(  0,  0,  0), RGB8( 80,  1,250), RGB8( 37,  2,  0)
 	
 };
 
