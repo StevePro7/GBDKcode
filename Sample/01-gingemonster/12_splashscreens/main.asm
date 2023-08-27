@@ -44,19 +44,19 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:6: void main(){
+;main.c:6: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:7: set_bkg_data(0, 114, mario_data);
+;main.c:7: set_bkg_data( 0, 114, mario_data );
 	ld	de, #_mario_data
 	push	de
 	ld	hl, #0x7200
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:8: set_bkg_tiles(0, 0, 20, 18, mario_map);
+;main.c:8: set_bkg_tiles( 0, 0, 20, 18, mario_map );
 	ld	de, #_mario_map
 	push	de
 	ld	hl, #0x1214
@@ -74,10 +74,10 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:13: waitpad(J_START);
+;main.c:13: waitpad( J_START );
 	ld	a, #0x80
 	call	_waitpad
-;main.c:15: printf("START OF MY GAME");
+;main.c:15: printf( "START OF MY GAME" );
 	ld	de, #___str_0
 	push	de
 	call	_printf

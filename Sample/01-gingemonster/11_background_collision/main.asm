@@ -62,13 +62,13 @@ _gamerunning::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:12: void performantdelay(UINT8 numloops){
+;main.c:12: void performantdelay( UINT8 numloops ) {
 ;	---------------------------------
 ; Function performantdelay
 ; ---------------------------------
 _performantdelay::
 	ld	c, a
-;main.c:14: for(i = 0; i < numloops; i++){
+;main.c:14: for( i = 0; i < numloops; i++ ) {
 	ld	b, #0x00
 00103$:
 	ld	a, b
@@ -76,13 +76,13 @@ _performantdelay::
 	ret	NC
 ;main.c:15: wait_vbl_done();
 	call	_wait_vbl_done
-;main.c:14: for(i = 0; i < numloops; i++){
+;main.c:14: for( i = 0; i < numloops; i++ ) {
 	inc	b
 ;main.c:17: }
 	jr	00103$
 _blankmap:
 	.db #0x00	; 0
-;main.c:19: UBYTE canplayermove(UINT8 newplayerx, UINT8 newplayery){
+;main.c:19: UBYTE canplayermove( UINT8 newplayerx, UINT8 newplayery ) {
 ;	---------------------------------
 ; Function canplayermove
 ; ---------------------------------
@@ -90,7 +90,7 @@ _canplayermove::
 	add	sp, #-8
 	ldhl	sp,	#7
 	ld	(hl-), a
-;main.c:23: indexTLx = (newplayerx - 8) / 8;
+;main.c:23: indexTLx = ( newplayerx - 8 ) / 8;
 	ld	a, e
 	ld	(hl+), a
 	ld	a, (hl)
@@ -141,7 +141,7 @@ _canplayermove::
 	srl	(hl)
 	dec	hl
 	rr	(hl)
-;main.c:24: indexTLy = (newplayery - 16) / 8;
+;main.c:24: indexTLy = ( newplayery - 16 ) / 8;
 	ldhl	sp,	#6
 	ld	a, (hl)
 	ldhl	sp,	#2
@@ -210,11 +210,11 @@ _canplayermove::
 	ld	(hl), e
 	inc	hl
 	ld	(hl), a
-;main.c:27: if(debug){
+;main.c:27: if( debug ) {
 	ld	a, (#_debug)
 	or	a, a
 	jr	Z, 00102$
-;main.c:28: printf("%u %u\n",(UINT16)(newplayerx),(UINT16)(newplayery));
+;main.c:28: printf( "%u %u\n", ( UINT16 ) ( newplayerx ), ( UINT16 ) ( newplayery ) );
 	ldhl	sp,	#6
 	ld	a, (hl+)
 	ld	e, a
@@ -235,7 +235,7 @@ _canplayermove::
 	call	_printf
 	add	sp, #6
 	pop	bc
-;main.c:29: printf("%u %u %u\n",(UINT16)indexTLx,(UINT16)indexTLy,(UINT16)tileindexTL);   
+;main.c:29: printf( "%u %u %u\n", ( UINT16 ) indexTLx, ( UINT16 ) indexTLy, ( UINT16 ) tileindexTL );
 	ldhl	sp,	#2
 	ld	a, (hl+)
 	ld	e, a
@@ -252,7 +252,7 @@ _canplayermove::
 	call	_printf
 	add	sp, #8
 00102$:
-;main.c:32: result = MazeMap[tileindexTL] == blankmap[0];
+;main.c:32: result = MazeMap[ tileindexTL ] == blankmap[ 0 ];
 	ld	bc, #_MazeMap+0
 	ldhl	sp,	#2
 	ld	a,	(hl+)
@@ -273,7 +273,7 @@ _canplayermove::
 	xor	a, a
 00152$:
 	ld	e, a
-;main.c:34: if(tileindexTL==321){
+;main.c:34: if( tileindexTL == 321 ) {
 	ldhl	sp,	#2
 	ld	a, (hl)
 	sub	a, #0x41
@@ -282,7 +282,7 @@ _canplayermove::
 	ld	a, (hl)
 	dec	a
 	jr	NZ, 00110$
-;main.c:36: set_bkg_tiles(1,16,1,1,blankmap);
+;main.c:36: set_bkg_tiles( 1, 16, 1, 1, blankmap );
 	push	bc
 	ld	hl, #0x101
 	push	hl
@@ -297,7 +297,7 @@ _canplayermove::
 	ld	e, #0x01
 	jr	00111$
 00110$:
-;main.c:40: else if(tileindexTL==263 && haskey){
+;main.c:40: else if( tileindexTL == 263 && haskey ) {
 	ldhl	sp,	#2
 	ld	a, (hl)
 	sub	a, #0x07
@@ -309,7 +309,7 @@ _canplayermove::
 	ld	a, (#_haskey)
 	or	a, a
 	jr	Z, 00106$
-;main.c:42: set_bkg_tiles(3,13,1,1,blankmap);
+;main.c:42: set_bkg_tiles( 3, 13, 1, 1, blankmap );
 	push	bc
 	ld	hl, #0x101
 	push	hl
@@ -321,7 +321,7 @@ _canplayermove::
 	ld	e, #0x01
 	jr	00111$
 00106$:
-;main.c:45: else if(tileindexTL==340){
+;main.c:45: else if( tileindexTL == 340 ) {
 	ldhl	sp,	#2
 	ld	a, (hl)
 	sub	a, #0x54
@@ -337,7 +337,7 @@ _canplayermove::
 	ldh	a, (_LCDC_REG + 0)
 	and	a, #0xfd
 	ldh	(_LCDC_REG + 0), a
-;main.c:49: printf("\n \n \n \n \n \n \n \n \n      YOU WIN!");
+;main.c:49: printf( "\n \n \n \n \n \n \n \n \n      YOU WIN!" );
 	ld	de, #___str_2
 	push	de
 	call	_printf
@@ -378,19 +378,19 @@ ___str_2:
 	.db 0x0a
 	.ascii "      YOU WIN!"
 	.db 0x00
-;main.c:57: void animatesprite(UINT8 spriteindex, INT8 movex, INT8 movey){
+;main.c:57: void animatesprite( UINT8 spriteindex, INT8 movex, INT8 movey ) {
 ;	---------------------------------
 ; Function animatesprite
 ; ---------------------------------
 _animatesprite::
 	ld	c, a
 	ld	b, e
-;main.c:58: while(movex!=0){
+;main.c:58: while( movex != 0 ) {
 00101$:
 	ld	a, b
 	or	a, a
 	jr	Z, 00104$
-;main.c:59: scroll_sprite(spriteindex, movex < 0 ? -1 : 1, 0);
+;main.c:59: scroll_sprite( spriteindex, movex < 0 ? -1 : 1, 0 );
 	bit	7, b
 	jr	Z, 00111$
 	ld	de, #0xffff
@@ -417,7 +417,7 @@ _animatesprite::
 	ld	a, (hl)
 	add	a, e
 	ld	(hl), a
-;main.c:60: movex += (movex < 0 ? 1 : -1);
+;main.c:60: movex += ( movex < 0 ? 1 : -1 );
 	bit	7, b
 	jr	Z, 00113$
 	ld	de, #0x0001
@@ -431,13 +431,13 @@ _animatesprite::
 ;main.c:61: wait_vbl_done();
 	call	_wait_vbl_done
 	jr	00101$
-;main.c:63: while(movey!=0){
+;main.c:63: while( movey != 0 ) {
 00104$:
 	ldhl	sp,	#2
 	ld	a, (hl)
 	or	a, a
 	jr	Z, 00109$
-;main.c:64: scroll_sprite(spriteindex, 0, movey < 0 ? -1 : 1);
+;main.c:64: scroll_sprite( spriteindex, 0, movey < 0 ? -1 : 1 );
 	bit	7, (hl)
 	jr	Z, 00115$
 	ld	de, #0xffff
@@ -484,19 +484,19 @@ _animatesprite::
 	pop	hl
 	inc	sp
 	jp	(hl)
-;main.c:70: void main(){
+;main.c:70: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:72: set_bkg_data(0, 4, MazeSprites);
+;main.c:72: set_bkg_data( 0, 4, MazeSprites );
 	ld	de, #_MazeSprites
 	push	de
 	ld	hl, #0x400
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:73: set_bkg_tiles(0, 0, 20, 18, MazeMap);
+;main.c:73: set_bkg_tiles( 0, 0, 20, 18, MazeMap );
 	ld	de, #_MazeMap
 	push	de
 	ld	hl, #0x1214
@@ -506,7 +506,7 @@ _main::
 	push	af
 	call	_set_bkg_tiles
 	add	sp, #6
-;main.c:75: set_sprite_data(0, 1, Snail);   /* defines the sprite data */
+;main.c:75: set_sprite_data( 0, 1, Snail );   /* defines the sprite data */
 	ld	de, #_Snail
 	push	de
 	xor	a, a
@@ -517,13 +517,13 @@ _main::
 ;C:/gbdk/include/gb/gb.h:1602: shadow_OAM[nb].tile=tile;
 	ld	hl, #(_shadow_OAM + 2)
 	ld	(hl), #0x00
-;main.c:78: playerlocation[0] = 16;
+;main.c:78: playerlocation[ 0 ] = 16;
 	ld	hl, #_playerlocation
 	ld	(hl), #0x10
-;main.c:79: playerlocation[1] = 24;
+;main.c:79: playerlocation[ 1 ] = 24;
 	ld	hl, #(_playerlocation + 1)
 	ld	(hl), #0x18
-;main.c:81: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:81: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 	ld	hl, #(_playerlocation + 1)
 	ld	b, (hl)
 	ld	hl, #_playerlocation
@@ -549,12 +549,12 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:89: while(gamerunning){
+;main.c:89: while( gamerunning ) {
 00122$:
 	ld	a, (#_gamerunning)
 	or	a, a
 	ret	Z
-;main.c:90: if(joypad() & J_A){
+;main.c:90: if( joypad() & J_A ) {
 	call	_joypad
 	bit	4, a
 	jr	Z, 00102$
@@ -562,11 +562,11 @@ _main::
 	ld	hl, #_debug
 	ld	(hl), #0x01
 00102$:
-;main.c:93: if(joypad() & J_LEFT){
+;main.c:93: if( joypad() & J_LEFT ) {
 	call	_joypad
 	bit	1, a
 	jr	Z, 00120$
-;main.c:94: if(canplayermove(playerlocation[0]-8,playerlocation[1])){
+;main.c:94: if( canplayermove( playerlocation[ 0 ] - 8, playerlocation[ 1 ] ) ) {
 	ld	hl, #(_playerlocation + 1)
 	ld	c, (hl)
 	ld	a, (#_playerlocation + 0)
@@ -575,11 +575,11 @@ _main::
 	call	_canplayermove
 	or	a, a
 	jp	Z, 00121$
-;main.c:95: playerlocation[0] -= 8;
+;main.c:95: playerlocation[ 0 ] -= 8;
 	ld	a, (#_playerlocation + 0)
 	add	a, #0xf8
 	ld	(#_playerlocation),a
-;main.c:96: animatesprite(0,-8,0);
+;main.c:96: animatesprite( 0, -8, 0 );
 	xor	a, a
 	push	af
 	inc	sp
@@ -588,11 +588,11 @@ _main::
 	call	_animatesprite
 	jp	00121$
 00120$:
-;main.c:99: else if(joypad() & J_RIGHT){
+;main.c:99: else if( joypad() & J_RIGHT ) {
 	call	_joypad
 	rrca
 	jr	NC, 00117$
-;main.c:100: if(canplayermove(playerlocation[0]+8,playerlocation[1])){            
+;main.c:100: if( canplayermove( playerlocation[ 0 ] + 8, playerlocation[ 1 ] ) ) {
 	ld	hl, #(_playerlocation + 1)
 	ld	b, (hl)
 	ld	a, (#_playerlocation + 0)
@@ -601,11 +601,11 @@ _main::
 	call	_canplayermove
 	or	a, a
 	jr	Z, 00121$
-;main.c:101: playerlocation[0] += 8;
+;main.c:101: playerlocation[ 0 ] += 8;
 	ld	a, (#_playerlocation + 0)
 	add	a, #0x08
 	ld	(#_playerlocation),a
-;main.c:102: animatesprite(0,8,0);
+;main.c:102: animatesprite( 0, 8, 0 );
 	xor	a, a
 	push	af
 	inc	sp
@@ -614,11 +614,11 @@ _main::
 	call	_animatesprite
 	jr	00121$
 00117$:
-;main.c:105: else if(joypad() & J_UP){
+;main.c:105: else if( joypad() & J_UP ) {
 	call	_joypad
 	bit	2, a
 	jr	Z, 00114$
-;main.c:106: if(canplayermove(playerlocation[0],playerlocation[1]-8)){
+;main.c:106: if( canplayermove( playerlocation[ 0 ], playerlocation[ 1 ] - 8 ) ) {
 	ld	a, (#(_playerlocation + 1) + 0)
 	add	a, #0xf8
 	ld	c, a
@@ -629,11 +629,11 @@ _main::
 	call	_canplayermove
 	or	a, a
 	jr	Z, 00121$
-;main.c:107: playerlocation[1] -= 8;
+;main.c:107: playerlocation[ 1 ] -= 8;
 	ld	a, (#(_playerlocation + 1) + 0)
 	add	a, #0xf8
 	ld	(#(_playerlocation + 1)),a
-;main.c:108: animatesprite(0,0,-8);
+;main.c:108: animatesprite( 0, 0, -8 );
 	ld	a, #0xf8
 	push	af
 	inc	sp
@@ -642,11 +642,11 @@ _main::
 	call	_animatesprite
 	jr	00121$
 00114$:
-;main.c:111: else if(joypad() & J_DOWN){
+;main.c:111: else if( joypad() & J_DOWN ) {
 	call	_joypad
 	bit	3, a
 	jr	Z, 00121$
-;main.c:112: if(canplayermove(playerlocation[0],playerlocation[1]+8)){
+;main.c:112: if( canplayermove( playerlocation[ 0 ], playerlocation[ 1 ] + 8 ) ) {
 	ld	a, (#(_playerlocation + 1) + 0)
 	add	a, #0x08
 	ld	c, a
@@ -657,11 +657,11 @@ _main::
 	call	_canplayermove
 	or	a, a
 	jr	Z, 00121$
-;main.c:113: playerlocation[1] += 8;
+;main.c:113: playerlocation[ 1 ] += 8;
 	ld	a, (#(_playerlocation + 1) + 0)
 	add	a, #0x08
 	ld	(#(_playerlocation + 1)),a
-;main.c:114: animatesprite(0,0,8);
+;main.c:114: animatesprite( 0, 0, 8 );
 	ld	a, #0x08
 	push	af
 	inc	sp
@@ -669,7 +669,7 @@ _main::
 	ld	e, a
 	call	_animatesprite
 00121$:
-;main.c:118: performantdelay(6);
+;main.c:118: performantdelay( 6 );
 	ld	a, #0x06
 	call	_performantdelay
 ;main.c:120: }

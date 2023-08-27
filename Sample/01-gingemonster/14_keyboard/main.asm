@@ -71,13 +71,13 @@ _playerhasname::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:18: void performantdelay(UINT8 numloops){
+;main.c:18: void performantdelay( UINT8 numloops ) {
 ;	---------------------------------
 ; Function performantdelay
 ; ---------------------------------
 _performantdelay::
 	ld	c, a
-;main.c:20: for(ii = 0; ii < numloops; ii++){
+;main.c:20: for( ii = 0; ii < numloops; ii++ ) {
 	ld	b, #0x00
 00103$:
 	ld	a, b
@@ -85,7 +85,7 @@ _performantdelay::
 	ret	NC
 ;main.c:21: wait_vbl_done();
 	call	_wait_vbl_done
-;main.c:20: for(ii = 0; ii < numloops; ii++){
+;main.c:20: for( ii = 0; ii < numloops; ii++ ) {
 	inc	b
 ;main.c:23: }
 	jr	00103$
@@ -97,13 +97,13 @@ _maxcursorx:
 	.db #0x9c	; 156
 _maxcursory:
 	.db #0x80	; 128
-;main.c:25: UBYTE isWithinKeyboard(UINT8 x, UINT8 y){
+;main.c:25: UBYTE isWithinKeyboard( UINT8 x, UINT8 y ) {
 ;	---------------------------------
 ; Function isWithinKeyboard
 ; ---------------------------------
 _isWithinKeyboard::
 	ld	c, a
-;main.c:27: if(x==140 && y==144 || x==156 && y==144){
+;main.c:27: if( x == 140 && y == 144 || x == 156 && y == 144 ) {
 	ld	a, e
 	sub	a, #0x90
 	ld	a, #0x01
@@ -151,7 +151,7 @@ _isWithinKeyboard::
 	ld	a, #0x01
 ;main.c:31: }
 	ret
-;main.c:33: void addtoplayername(struct Cursor* cursor){
+;main.c:33: void addtoplayername( struct Cursor* cursor ) {
 ;	---------------------------------
 ; Function addtoplayername
 ; ---------------------------------
@@ -181,11 +181,11 @@ _addtoplayername::
 	add	a, l
 	ld	c, a
 	inc	c
-;main.c:37: if(namecharacterindex == 18) return; // max name length reached
+;main.c:37: if( namecharacterindex == 18 ) return; // max name length reached
 	ld	a, (#_namecharacterindex)
 	sub	a, #0x12
 	ret	Z
-;main.c:39: playername[namecharacterindex] = characterindex;
+;main.c:39: playername[ namecharacterindex ] = characterindex;
 	ld	a, #<(_playername)
 	ld	hl, #_namecharacterindex
 	add	a, (hl)
@@ -199,19 +199,19 @@ _addtoplayername::
 	inc	(hl)
 ;main.c:41: }
 	ret
-;main.c:43: void removefromplayername(){
+;main.c:43: void removefromplayername() {
 ;	---------------------------------
 ; Function removefromplayername
 ; ---------------------------------
 _removefromplayername::
-;main.c:44: if(namecharacterindex>0){
+;main.c:44: if( namecharacterindex > 0 ) {
 	ld	hl, #_namecharacterindex
 	ld	a, (hl)
 	or	a, a
 	ret	Z
 ;main.c:45: namecharacterindex--;
 	dec	(hl)
-;main.c:46: playername[namecharacterindex] = 0;// replace with space
+;main.c:46: playername[ namecharacterindex ] = 0;// replace with space
 	ld	bc, #_playername+0
 	ld	a, c
 	add	a, (hl)
@@ -223,12 +223,12 @@ _removefromplayername::
 	ld	(bc), a
 ;main.c:48: }
 	ret
-;main.c:50: void drawplayername(){
+;main.c:50: void drawplayername() {
 ;	---------------------------------
 ; Function drawplayername
 ; ---------------------------------
 _drawplayername::
-;main.c:51: set_bkg_tiles(1, 4, 18, 1, playername);
+;main.c:51: set_bkg_tiles( 1, 4, 18, 1, playername );
 	ld	de, #_playername
 	push	de
 	ld	hl, #0x112
@@ -239,12 +239,12 @@ _drawplayername::
 	add	sp, #6
 ;main.c:52: }
 	ret
-;main.c:54: void updateplayername(struct Cursor* cursor){
+;main.c:54: void updateplayername( struct Cursor* cursor ) {
 ;	---------------------------------
 ; Function updateplayername
 ; ---------------------------------
 _updateplayername::
-;main.c:56: if(cursor->col==8 && cursor->row == 4){
+;main.c:56: if( cursor->col == 8 && cursor->row == 4 ) {
 	ld	l, e
 ;	spillPairReg hl
 ;	spillPairReg hl
@@ -274,7 +274,7 @@ _updateplayername::
 ;main.c:59: drawplayername();
 	jp	_drawplayername
 00106$:
-;main.c:61: else if (cursor->col==9 && cursor->row == 4){
+;main.c:61: else if( cursor->col == 9 && cursor->row == 4 ) {
 	ld	a, c
 	sub	a, #0x09
 	jr	NZ, 00102$
@@ -286,17 +286,17 @@ _updateplayername::
 	ld	(hl), #0x01
 	ret
 00102$:
-;main.c:66: addtoplayername(cursor);
+;main.c:66: addtoplayername( cursor );
 	call	_addtoplayername
 ;main.c:67: drawplayername();
 ;main.c:69: }
 	jp	_drawplayername
-;main.c:71: void main(){
+;main.c:71: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:73: set_sprite_data(0, 1, sprites);
+;main.c:73: set_sprite_data( 0, 1, sprites );
 	ld	de, #_sprites
 	push	de
 	xor	a, a
@@ -319,7 +319,7 @@ _main::
 ;main.c:79: cursor.row = 0;
 	ld	hl, #(_cursor + 3)
 	ld	(hl), #0x00
-;main.c:80: move_sprite(0, cursor.x, cursor.y);
+;main.c:80: move_sprite( 0, cursor.x, cursor.y );
 	ld	hl, #(_cursor + 1)
 	ld	b, (hl)
 	ld	hl, #_cursor
@@ -330,14 +330,14 @@ _main::
 	ld	a, b
 	ld	(hl+), a
 	ld	(hl), c
-;main.c:82: set_bkg_data(0, 45, keyboarddata);
+;main.c:82: set_bkg_data( 0, 45, keyboarddata );
 	ld	de, #_keyboarddata
 	push	de
 	ld	hl, #0x2d00
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:83: set_bkg_tiles(0, 0, 20, 18, keyboardmap);
+;main.c:83: set_bkg_tiles( 0, 0, 20, 18, keyboardmap );
 	ld	de, #_keyboardmap
 	push	de
 	ld	hl, #0x1214
@@ -363,12 +363,12 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:90: while(!playerhasname){
+;main.c:90: while( !playerhasname ) {
 00117$:
 	ld	a, (#_playerhasname)
 	or	a, a
 	ret	NZ
-;main.c:91: if(keydown){
+;main.c:91: if( keydown ) {
 	ld	a, (#_keydown)
 	or	a, a
 	jr	Z, 00102$
@@ -378,7 +378,7 @@ _main::
 	ld	hl, #_keydown
 	ld	(hl), #0x00
 00102$:
-;main.c:96: switch(joypad()){
+;main.c:96: switch( joypad() ) {
 	call	_joypad
 	ld	c, a
 	dec	a
@@ -395,7 +395,7 @@ _main::
 	jp	00116$
 ;main.c:97: case J_UP:
 00103$:
-;main.c:98: if(isWithinKeyboard(cursor.x, cursor.y - 16)){
+;main.c:98: if( isWithinKeyboard( cursor.x, cursor.y - 16 ) ) {
 	ld	a, (#(_cursor + 1) + 0)
 	add	a, #0xf0
 	ld	b, a
@@ -428,9 +428,9 @@ _main::
 	ld	(#(_cursor + 3)),a
 ;main.c:104: break;
 	jp	00116$
-;main.c:105: case J_DOWN: 
+;main.c:105: case J_DOWN:
 00106$:
-;main.c:106: if(isWithinKeyboard(cursor.x, cursor.y + 16)){            
+;main.c:106: if( isWithinKeyboard( cursor.x, cursor.y + 16 ) ) {
 	ld	a, (#(_cursor + 1) + 0)
 	add	a, #0x10
 	ld	b, a
@@ -461,11 +461,11 @@ _main::
 	ld	a, (#(_cursor + 3) + 0)
 	inc	a
 	ld	(#(_cursor + 3)),a
-;main.c:112: break;  
+;main.c:112: break;
 	jr	00116$
-;main.c:113: case J_LEFT: 
+;main.c:113: case J_LEFT:
 00109$:
-;main.c:114: if(isWithinKeyboard(cursor.x - 16, cursor.y)){
+;main.c:114: if( isWithinKeyboard( cursor.x - 16, cursor.y ) ) {
 	ld	hl, #(_cursor + 1)
 	ld	b, (hl)
 	ld	a, (#_cursor + 0)
@@ -494,11 +494,11 @@ _main::
 	ld	a, (#(_cursor + 2) + 0)
 	dec	a
 	ld	(#(_cursor + 2)),a
-;main.c:120: break; 
+;main.c:120: break;
 	jr	00116$
-;main.c:121: case J_RIGHT: 
+;main.c:121: case J_RIGHT:
 00112$:
-;main.c:122: if(isWithinKeyboard(cursor.x + 16, cursor.y)){            
+;main.c:122: if( isWithinKeyboard( cursor.x + 16, cursor.y ) ) {
 	ld	hl, #(_cursor + 1)
 	ld	c, (hl)
 	ld	a, (#_cursor + 0)
@@ -531,15 +531,15 @@ _main::
 	jr	00116$
 ;main.c:129: case J_A:
 00115$:
-;main.c:130: updateplayername(&cursor);
+;main.c:130: updateplayername( &cursor );
 	ld	de, #_cursor
 	call	_updateplayername
-;main.c:131: keydown = 1;                
+;main.c:131: keydown = 1;
 	ld	hl, #_keydown
 	ld	(hl), #0x01
 ;main.c:133: }
 00116$:
-;main.c:134: performantdelay(2);
+;main.c:134: performantdelay( 2 );
 	ld	a, #0x02
 	call	_performantdelay
 ;main.c:136: }
