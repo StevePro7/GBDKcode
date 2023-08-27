@@ -64,13 +64,13 @@ _bloke::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:31: void performantdelay(UINT8 numloops){
+;main.c:31: void performantdelay( UINT8 numloops ) {
 ;	---------------------------------
 ; Function performantdelay
 ; ---------------------------------
 _performantdelay::
 	ld	c, a
-;main.c:33: for(i = 0; i < numloops; i++){
+;main.c:33: for( i = 0; i < numloops; i++ ) {
 	ld	b, #0x00
 00103$:
 	ld	a, b
@@ -78,18 +78,18 @@ _performantdelay::
 	ret	NC
 ;main.c:34: wait_vbl_done();
 	call	_wait_vbl_done
-;main.c:33: for(i = 0; i < numloops; i++){
+;main.c:33: for( i = 0; i < numloops; i++ ) {
 	inc	b
 ;main.c:36: }
 	jr	00103$
-;main.c:38: INT8 wouldhitsurface(INT16 projectedYPosition){
+;main.c:38: INT8 wouldhitsurface( INT16 projectedYPosition ) {
 ;	---------------------------------
 ; Function wouldhitsurface
 ; ---------------------------------
 _wouldhitsurface::
 	ld	c, e
 	ld	b, d
-;main.c:39: if(projectedYPosition >= floorYposition){
+;main.c:39: if( projectedYPosition >= floorYposition ) {
 	ld	hl, #_floorYposition
 	ld	a, c
 	sub	a, (hl)
@@ -118,7 +118,7 @@ _wouldhitsurface::
 	ld	a, #0xff
 ;main.c:44: }
 	ret
-;main.c:46: void jump(UINT8 spriteid, UINT16 spritelocation[2]){
+;main.c:46: void jump( UINT8 spriteid, UINT16 spritelocation[ 2 ] ) {
 ;	---------------------------------
 ; Function jump
 ; ---------------------------------
@@ -130,12 +130,12 @@ _jump::
 	ld	a, e
 	ld	(hl+), a
 	ld	(hl), d
-;main.c:49: if(jumping==0){
+;main.c:49: if( jumping == 0 ) {
 	ld	hl, #_jumping
 	ld	a, (hl)
 	or	a, a
 	jr	NZ, 00102$
-;main.c:50: jumping=1;
+;main.c:50: jumping = 1;
 	ld	(hl), #0x01
 ;main.c:51: currentspeedY = 10;
 	ld	hl, #_currentspeedY
@@ -144,7 +144,7 @@ _jump::
 	xor	a, a
 	ld	(hl), a
 00102$:
-;main.c:55: currentspeedY = currentspeedY + gravity;    
+;main.c:55: currentspeedY = currentspeedY + gravity;
 	ld	a, (#_gravity)
 	ld	c, a
 	rlca
@@ -157,7 +157,7 @@ _jump::
 	ld	a, (hl)
 	adc	a, b
 	ld	(hl), a
-;main.c:57: spritelocation[1] = spritelocation[1] - currentspeedY;
+;main.c:57: spritelocation[ 1 ] = spritelocation[ 1 ] - currentspeedY;
 	ldhl	sp,#6
 	ld	a, (hl+)
 	ld	e, a
@@ -203,20 +203,20 @@ _jump::
 	ld	(hl), c
 	inc	hl
 	ld	(hl), b
-;main.c:59: possiblesurfaceY = wouldhitsurface(spritelocation[1]);
+;main.c:59: possiblesurfaceY = wouldhitsurface( spritelocation[ 1 ] );
 	ld	e, c
 	ld	d, b
 	call	_wouldhitsurface
 	ldhl	sp,	#2
 	ld	(hl), a
-;main.c:61: if(possiblesurfaceY != -1){
+;main.c:61: if( possiblesurfaceY != -1 ) {
 	ld	a, (hl)
 	inc	a
 	jr	Z, 00104$
 ;main.c:62: jumping = 0;
 	ld	hl, #_jumping
 	ld	(hl), #0x00
-;main.c:63: move_sprite(spriteid,spritelocation[0],possiblesurfaceY);
+;main.c:63: move_sprite( spriteid, spritelocation[ 0 ], possiblesurfaceY );
 	ldhl	sp,#6
 	ld	a, (hl+)
 	ld	e, a
@@ -274,10 +274,10 @@ _jump::
 	inc	bc
 	ld	a, (hl)
 	ld	(bc), a
-;main.c:63: move_sprite(spriteid,spritelocation[0],possiblesurfaceY);
+;main.c:63: move_sprite( spriteid, spritelocation[ 0 ], possiblesurfaceY );
 	jr	00108$
 00104$:
-;main.c:66: move_sprite(spriteid,spritelocation[0],spritelocation[1]);
+;main.c:66: move_sprite( spriteid, spritelocation[ 0 ], spritelocation[ 1 ] );
 	ldhl	sp,#4
 	ld	a, (hl+)
 	ld	e, a
@@ -309,18 +309,18 @@ _jump::
 	inc	bc
 	ld	a, (hl)
 	ld	(bc), a
-;main.c:66: move_sprite(spriteid,spritelocation[0],spritelocation[1]);
+;main.c:66: move_sprite( spriteid, spritelocation[ 0 ], spritelocation[ 1 ] );
 00108$:
 ;main.c:68: }
 	add	sp, #9
 	ret
-;main.c:70: void main(){
+;main.c:70: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
 	dec	sp
-;main.c:72: set_sprite_data(0, 8, bloke);   /* defines the sprite data */
+;main.c:72: set_sprite_data( 0, 8, bloke );   /* defines the sprite data */
 	ld	de, #_bloke
 	push	de
 	ld	hl, #0x800
@@ -330,12 +330,12 @@ _main::
 ;C:/gbdk/include/gb/gb.h:1602: shadow_OAM[nb].tile=tile;
 	ld	hl, #(_shadow_OAM + 2)
 	ld	(hl), #0x00
-;main.c:76: playerlocation[0] = 10;
+;main.c:76: playerlocation[ 0 ] = 10;
 	ld	hl, #_playerlocation
 	ld	a, #0x0a
 	ld	(hl+), a
 	ld	(hl), #0x00
-;main.c:77: playerlocation[1] = floorYposition;
+;main.c:77: playerlocation[ 1 ] = floorYposition;
 	ld	de, #(_playerlocation + 2)
 	ld	hl, #_floorYposition
 	ld	a, (hl+)
@@ -346,7 +346,7 @@ _main::
 ;main.c:78: jumping = 0;
 	ld	hl, #_jumping
 	ld	(hl), #0x00
-;main.c:80: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:80: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 	ld	hl, #(_playerlocation + 2)
 	ld	b, (hl)
 	ld	hl, #_playerlocation
@@ -365,9 +365,9 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-;main.c:85: while(1){
+;main.c:85: while( 1 ) {
 00109$:
-;main.c:86: if((joypad() & J_A) || jumping == 1){
+;main.c:86: if( ( joypad() & J_A ) || jumping == 1 ) {
 	call	_joypad
 	bit	4, a
 	jr	NZ, 00101$
@@ -375,16 +375,16 @@ _main::
 	dec	a
 	jr	NZ, 00102$
 00101$:
-;main.c:87: jump(0,playerlocation);
+;main.c:87: jump( 0, playerlocation );
 	ld	de, #_playerlocation
 	xor	a, a
 	call	_jump
 00102$:
-;main.c:89: if(joypad() & J_LEFT){
+;main.c:89: if( joypad() & J_LEFT ) {
 	call	_joypad
 	bit	1, a
 	jr	Z, 00105$
-;main.c:90: playerlocation[0] = playerlocation[0] - 2;
+;main.c:90: playerlocation[ 0 ] = playerlocation[ 0 ] - 2;
 	ld	hl, #_playerlocation
 	ld	a, (hl+)
 	ld	c, a
@@ -395,7 +395,7 @@ _main::
 	ld	a, c
 	ld	(hl+), a
 	ld	(hl), b
-;main.c:91: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:91: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 	ld	a, (#(_playerlocation + 2) + 0)
 	ldhl	sp,	#0
 	ld	(hl), a
@@ -408,13 +408,13 @@ _main::
 	inc	de
 	ld	a, c
 	ld	(de), a
-;main.c:91: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:91: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 00105$:
-;main.c:93: if(joypad() & J_RIGHT){
+;main.c:93: if( joypad() & J_RIGHT ) {
 	call	_joypad
 	rrca
 	jr	NC, 00107$
-;main.c:94: playerlocation[0] = playerlocation[0] + 2;
+;main.c:94: playerlocation[ 0 ] = playerlocation[ 0 ] + 2;
 	ld	hl, #_playerlocation
 	ld	a, (hl+)
 	ld	c, a
@@ -425,7 +425,7 @@ _main::
 	ld	a, c
 	ld	(hl+), a
 	ld	(hl), b
-;main.c:95: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:95: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 	ld	a, (#(_playerlocation + 2) + 0)
 	ldhl	sp,	#0
 	ld	(hl), a
@@ -438,9 +438,9 @@ _main::
 	inc	de
 	ld	a, c
 	ld	(de), a
-;main.c:95: move_sprite(0,playerlocation[0],playerlocation[1]);
+;main.c:95: move_sprite( 0, playerlocation[ 0 ], playerlocation[ 1 ] );
 00107$:
-;main.c:97: performantdelay(5);
+;main.c:97: performantdelay( 5 );
 	ld	a, #0x05
 	call	_performantdelay
 	jr	00109$

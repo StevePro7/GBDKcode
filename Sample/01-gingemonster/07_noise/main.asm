@@ -42,7 +42,7 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:4: void main(){
+;main.c:4: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
@@ -56,11 +56,11 @@ _main::
 ;main.c:8: NR51_REG = 0xFF; // is 1111 1111 in binary, select which chanels we want to use in this case all of them. One bit for the L one bit for the R of all four channels
 	ld	a, #0xff
 	ldh	(_NR51_REG + 0), a
-;main.c:11: while(1) {
+;main.c:11: while( 1 ) {
 00104$:
 ;main.c:12: UBYTE joypad_state = joypad();
 	call	_joypad
-;main.c:14: if(joypad_state) {   
+;main.c:14: if( joypad_state ) {
 	or	a, a
 	jr	Z, 00104$
 ;main.c:17: NR41_REG = 0x1F;
@@ -72,10 +72,10 @@ _main::
 ;main.c:33: NR43_REG = 0x30;
 	ld	a, #0x30
 	ldh	(_NR43_REG + 0), a
-;main.c:40: NR44_REG = 0xC0;  
+;main.c:40: NR44_REG = 0xC0;
 	ld	a, #0xc0
 	ldh	(_NR44_REG + 0), a
-;main.c:42: delay(1000);
+;main.c:42: delay( 1000 );
 	ld	de, #0x03e8
 	call	_delay
 ;main.c:45: }

@@ -61,7 +61,7 @@ _interruptLCD::
 	ldh	(_LCDC_REG + 0), a
 ;main.c:9: }
 	ret
-;main.c:11: void main(){
+;main.c:11: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
@@ -76,23 +76,23 @@ _main::
 	di
 ;main.c:19: font_init();
 	call	_font_init
-;main.c:20: min_font = font_load(font_min); // 36 tile
+;main.c:20: min_font = font_load( font_min ); // 36 tile
 	ld	de, #_font_min
 	push	de
 	call	_font_load
 	pop	hl
-;main.c:21: font_set(min_font);
+;main.c:21: font_set( min_font );
 	push	de
 	call	_font_set
 	pop	hl
-;main.c:23: set_bkg_data(37, 7, backgroundtiles);
+;main.c:23: set_bkg_data( 37, 7, backgroundtiles );
 	ld	de, #_backgroundtiles
 	push	de
 	ld	hl, #0x725
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:24: set_bkg_tiles(0, 0, 40, 18, backgroundmap);
+;main.c:24: set_bkg_tiles( 0, 0, 40, 18, backgroundmap );
 	ld	de, #_backgroundmap
 	push	de
 	ld	hl, #0x1228
@@ -102,7 +102,7 @@ _main::
 	push	af
 	call	_set_bkg_tiles
 	add	sp, #6
-;main.c:26: set_win_tiles(0,0,5,1,windowmap);
+;main.c:26: set_win_tiles( 0, 0, 5, 1, windowmap );
 	ld	de, #_windowmap
 	push	de
 	ld	hl, #0x105
@@ -129,7 +129,7 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:33: add_LCD(interruptLCD);
+;main.c:33: add_LCD( interruptLCD );
 	ld	de, #_interruptLCD
 	push	de
 	call	_add_LCD
@@ -137,13 +137,13 @@ _main::
 	inc	sp
 ;C:/gbdk/include/gb/gb.h:727: __asm__("ei");
 	ei
-;main.c:35: set_interrupts(VBL_IFLAG | LCD_IFLAG);    
+;main.c:35: set_interrupts( VBL_IFLAG | LCD_IFLAG );
 	ld	a, #0x03
 	push	af
 	inc	sp
 	call	_set_interrupts
 	inc	sp
-;main.c:37: while(1){
+;main.c:37: while( 1 ) {
 00102$:
 ;main.c:38: SHOW_WIN;
 	ldh	a, (_LCDC_REG + 0)

@@ -43,19 +43,19 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:5: void main(){
+;main.c:5: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:6: set_bkg_data(0, 7, backgroundtiles);
+;main.c:6: set_bkg_data( 0, 7, backgroundtiles );
 	ld	de, #_backgroundtiles
 	push	de
 	ld	hl, #0x700
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:7: set_bkg_tiles(0, 0, 40, 18, backgroundmap);
+;main.c:7: set_bkg_tiles( 0, 0, 40, 18, backgroundmap );
 	ld	de, #_backgroundmap
 	push	de
 	ld	hl, #0x1228
@@ -73,13 +73,13 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:12: while(1){
+;main.c:12: while( 1 ) {
 00102$:
 ;C:/gbdk/include/gb/gb.h:1222: SCX_REG+=x, SCY_REG+=y;
 	ldh	a, (_SCX_REG + 0)
 	inc	a
 	ldh	(_SCX_REG + 0), a
-;main.c:14: delay(100);
+;main.c:14: delay( 100 );
 	ld	de, #0x0064
 	call	_delay
 ;main.c:16: }

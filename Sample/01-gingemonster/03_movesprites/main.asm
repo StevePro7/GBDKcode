@@ -43,12 +43,12 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:6: void main(){
+;main.c:6: void main() {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:9: set_sprite_data(0, 2, Smiler);
+;main.c:9: set_sprite_data( 0, 2, Smiler );
 	ld	de, #_Smiler
 	push	de
 	ld	hl, #0x200
@@ -68,9 +68,9 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-;main.c:14: while(1){
+;main.c:14: while( 1 ) {
 00107$:
-;main.c:15: switch(joypad()){
+;main.c:15: switch( joypad() ) {
 	call	_joypad
 	ld	c, a
 	dec	a
@@ -83,7 +83,7 @@ _main::
 	sub	a, #0x08
 	jr	Z, 00104$
 	jr	00105$
-;main.c:16: case J_LEFT: 
+;main.c:16: case J_LEFT:
 00101$:
 ;C:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM+0
@@ -96,7 +96,7 @@ _main::
 	ld	(bc), a
 ;main.c:18: break;
 	jr	00105$
-;main.c:19: case J_RIGHT: 
+;main.c:19: case J_RIGHT:
 00102$:
 ;C:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM
@@ -107,9 +107,9 @@ _main::
 	ld	a, (bc)
 	inc	a
 	ld	(bc), a
-;main.c:21: break;  
+;main.c:21: break;
 	jr	00105$
-;main.c:22: case J_UP: 
+;main.c:22: case J_UP:
 00103$:
 ;C:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM
@@ -120,9 +120,9 @@ _main::
 	inc	bc
 	ld	a, (bc)
 	ld	(bc), a
-;main.c:24: break; 
+;main.c:24: break;
 	jr	00105$
-;main.c:25: case J_DOWN: 
+;main.c:25: case J_DOWN:
 00104$:
 ;C:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM
@@ -135,7 +135,7 @@ _main::
 	ld	(bc), a
 ;main.c:28: }
 00105$:
-;main.c:29: delay(100);
+;main.c:29: delay( 100 );
 	ld	de, #0x0064
 	call	_delay
 ;main.c:31: }
