@@ -68,9 +68,9 @@ _border_data_palettes:
 	.dw #0x1d49
 	.dw #0x2ced
 	.dw #0x3d06
-	.dw #0x0011
-	.dw #0x4c0a
-	.dw #0x0011
+	.dw #0x0009
+	.dw #0x4334
+	.dw #0x0009
 _border_data_tiles:
 	.db #0xff	; 255
 	.db #0x00	; 0
