@@ -8,7 +8,7 @@ set /a _started=_hours*60*60*100+_min*60*100+_sec*100+_cs
 
 :: Automatically generated from Makefile
 %GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -c -o sgb_pong.o sgb_pong.c
-%GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -o output.gb sgb_pong.o
+%GBDK_WIN%/bin/lcc -Wm-ys -o output.gb sgb_pong.o
 
 :: Time build -END-
 set _time=%time: =0%

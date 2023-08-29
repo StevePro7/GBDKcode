@@ -9,8 +9,7 @@ set /a _started=_hours*60*60*100+_min*60*100+_sec*100+_cs
 :: Automatically generated from Makefile
 %GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -c -o sgb_sfx_names.o sgb_sfx_names.c
 %GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -c -o main.o main.c
-::%GBDK_WIN%/bin/lcc -Wm-ys -o output.gb main.o sgb_sfx_names.o
-%GBDK_WIN%/bin/lcc -Wa-l -Wl-m -Wl-j -o output.gb main.o sgb_sfx_names.o
+%GBDK_WIN%/bin/lcc -Wm-ys -o output.gb main.o sgb_sfx_names.o
 
 :: Time build -END-
 set _time=%time: =0%
